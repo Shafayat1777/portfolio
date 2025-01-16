@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Linkedin, Github } from "lucide-react";
+import TypewriterText from "@/components/TypeWriter";
 
 export default function Home() {
   return (
@@ -10,15 +11,8 @@ export default function Home() {
           Hello I'm <br />
           <span className="text-secondary">Shafayat Hossain</span>
         </h1>
-        <p className="text-xs font-light text-slate-300 mt-5">
-          I am a passionate and dedicated individual with a love for coding,
-          problem-solving, and crafting innovative machine learning models.
-          Proficient in the MERN (MongoDB, Express.js, React, Node.js) stack, I
-          also have a keen interest in web development. Over the past two years,
-          I have gained valuable experience in web development, further
-          enhancing my skills in creating dynamic and responsive web
-          applications.
-        </p>
+        
+        <TypewriterText />
 
         <div className="flex gap-4 mt-5">
           <Linkedin
