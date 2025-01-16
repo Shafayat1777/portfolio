@@ -9,8 +9,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "#09122C",
+        // foreground: "var(--foreground)",
+        primary: {
+          DEFAULT: "#BE3144", // The default shade
+          light: "#E17564", // Lighter shade
+          dark: "#872341", // Darker shade
+        },
+        secondary: {
+          DEFAULT: "#59CE8F",
+          light: "#FFF574",
+          dark: "#7E5CAD",
+        },
+        error: "#EF4444",
       },
     },
   },
