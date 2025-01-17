@@ -7,10 +7,7 @@ const TypewriterText: React.FC = () => {
     I am a passionate and dedicated individual with a love for coding,
     problem-solving, and crafting innovative machine learning models.
     Proficient in the MERN (MongoDB, Express.js, React, Node.js) stack, I
-    also have a keen interest in web development. Over the past two years,
-    I have gained valuable experience in web development, further
-    enhancing my skills in creating dynamic and responsive web
-    applications.
+    also have a keen interest in web development.
   `;
 
   const [displayedText, setDisplayedText] = useState<string>("");
