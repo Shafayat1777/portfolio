@@ -38,7 +38,7 @@ const TypewriterText: React.FC = () => {
   }, [fullText]);
 
   return (
-    <p className="text-xs font-light text-slate-300 mt-5">{displayedText}</p>
+    <p className="text-lg font-light text-slate-300 mt-5">{displayedText}</p>
   );
 };
 

@@ -1,30 +1,27 @@
 import Image from "next/image";
-import { Linkedin, Github } from "lucide-react";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 import TypewriterText from "@/components/TypeWriter";
+import Stats from "@/components/Stats";
+import { socials } from "@/lib/data";
 
 export default function Home() {
   return (
-    <div className=" grid md:grid-cols-2 gap-4 mt-20">
+    <div className=" grid grid-cols-1 md:grid-cols-2 gap-4">
       <div className="flex flex-col justify-center">
-        <h2 className="text-xs">Software Engineer</h2>
-        <h1 className="text-3xl">
+        <h2 className="text-lg">Software Engineer</h2>
+        <h1 className="text-3xl md:text-6xl font-bold">
           Hello I'm <br />
           <span className="text-secondary">Shafayat Hossain</span>
         </h1>
-        
+
         <TypewriterText />
 
         <div className="flex gap-4 mt-5">
-          <Linkedin
-            fill="currentColor"
-            size={35}
-            className="border border-primary-light rounded-full p-2"
-          />
-          <Github
-            fill="currentColor"
-            size={35}
-            className="border border-primary-light rounded-full p-2"
-          />
+          {socials.map((social, index) => (
+            <div className="border border-primary-light rounded-full p-2 cursor-pointer transition-all hover:scale-110">
+              <social.icon key={index} size={25} />
+            </div>
+          ))}
         </div>
       </div>
 
@@ -38,6 +35,8 @@ export default function Home() {
           unoptimized
         />
       </div>
+
+      <Stats />
     </div>
   );
 }
