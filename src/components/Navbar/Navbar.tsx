@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import cn from "@/utils/cn";
 import { links } from "@/lib/data";
@@ -8,8 +8,13 @@ export default function Nav() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex justify-center">
-      <div className="flex justify-between links-center w-10/12 xl:w-8/12 py-5">
+    <header className="relative flex justify-center z-[999] ">
+      <motion.div
+        className="fixed top-0 flex justify-between links-center w-10/12 xl:w-8/12 py-2 backdrop-blur-[0.5rem] shadow-lg shadow-black/[0.03]"
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         <Link
           href="/"
           className="relative text-2xl lg:text-4xl font-bold group"
@@ -23,13 +28,13 @@ export default function Nav() {
           ></span>
         </Link>
 
-        <div className="flex gap-4 text-lg font-semibold">
+        <nav className="flex justify-end flex-wrap gap-x-4 gap-y-1 text-lg font-semibold">
           {links.map((link, index) => (
             <Link
               key={index}
               href={link.href}
               className={cn(
-                "relative overflow-hidden border border-background p-2 hover:text-secondary group",
+                "relative overflow-hidden  p-2 hover:text-secondary group",
                 { "text-secondary": pathname === link.href }
               )}
             >
@@ -42,13 +47,8 @@ export default function Nav() {
               ></span>
             </Link>
           ))}
-        </div>
-
-        {/* <Menu
-          size={40}
-          className="border border-background rounded-full p-2 cursor-pointer hover:border-primary "
-        /> */}
-      </div>
-    </nav>
+        </nav>
+      </motion.div>
+    </header>
   );
 }

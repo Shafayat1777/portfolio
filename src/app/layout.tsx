@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${pixelifySans.className} antialiased body `}>
+      <body className={`${pixelifySans.className} antialiased body h-[900px]`}>
         <Nav />
         <div className="w-10/12 xl:w-8/12 mx-auto mt-20">{children}</div>
       </body>
