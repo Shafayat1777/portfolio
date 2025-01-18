@@ -14,12 +14,17 @@ export default {
         primary: {
           DEFAULT: "#BE3144", // The default shade
           light: "#E17564", // Lighter shade
-          dark: "#872341", // Darker shade
+          dark: "#872341", // Darker shade 
         },
         secondary: {
           DEFAULT: "#59CE8F",
           light: "#FFF574",
           dark: "#7E5CAD",
+        },
+        tertiary: {
+          DEFAULT: "#EDF4C2",
+          light: "#F93827",
+          dark: "#2A004E",
         },
         error: "#EF4444",
       },

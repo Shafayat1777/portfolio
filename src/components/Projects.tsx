@@ -1,24 +1,17 @@
-"use client";
 import SectionHeading from "./section-heading";
-import { motion } from "framer-motion";
+import { projects } from "@/lib/data";
+import CardProject from "./card-project";
 
 export default function Projects() {
   return (
-    <motion.section
-      className="mb-28 sm:mb-40"
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 1.2, type: "spring" }}
-    >
+    <section className="mb-28 sm:mb-40">
       <SectionHeading>Projects</SectionHeading>
 
-      <p className="text-slate-300 text-lg font-semibold  leading-8">
-        {" "}
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate
-        eveniet excepturi repudiandae, minus sint neque harum fugit tenetur.
-        Deserunt facilis tempore ipsum dignissimos provident delectus est
-        eveniet reiciendis, temporibus repellendus.
-      </p>
-    </motion.section>
+      <div className="flex flex-col items-center gap-4 sm:gap-8">
+        {projects.map((project, index) => (
+          <CardProject key={index} {...project} />
+        ))}
+      </div>
+    </section>
   );
 }

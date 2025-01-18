@@ -25,15 +25,31 @@ export const socials = [
 
 export const projects = [
   {
-    title: "Project 1",
-    description: "Description of project 1",
-    tags: ["tag1", "tag2", "tag3"],
+    title: "Skill Up",
+    description:
+      "Skill Up aims to revolutionize the way we learn by providing a dynamic and user-centric online platform.",
+    tags: [
+      "React.Js",
+      "Node.Js",
+      "Express.Js",
+      "Strapi",
+      "TailwindCSS",
+      "MySQL",
+    ],
     image: project_1,
   },
   {
-    title: "Project 2",
-    description: "Description of project 2",
-    tags: ["tag1", "tag2", "tag3"],
+    title: "Alumnet",
+    description:
+      "Connect with East West University alumni worldwide. Discover career opportunities, networking events, and mentorship programs.",
+    tags: [
+      "Next.Js",
+      "Node.Js",
+      "Express.Js",
+      "Strapi",
+      "TailwindCSS",
+      "MySQL",
+    ],
     image: project_2,
   },
 ];
