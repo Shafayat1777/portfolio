@@ -11,7 +11,9 @@ import SideNavBar from "./SideNavBar";
 export default function Nav() {
   const pathname = usePathname();
   const [showSideNav, setShowSideNav] = useState<boolean>(false);
+  const [active, setActive] = useState<string>("Home");
 
+  console.log(window.location.hash);
   return (
     <header className="relative z-[999] ">
       <motion.div
@@ -22,14 +24,15 @@ export default function Nav() {
       >
         <div className="w-10/12 xl:w-8/12 flex justify-between items-center py-4">
           <Link
-            href="/"
+            href="#home"
             className="relative text-2xl lg:text-4xl font-bold group"
+            onClick={() => setActive("Home")}
           >
             Shafayat<span className="text-secondary">.</span>
             <span
               className={cn(
                 "absolute left-0 bottom-0 h-0.5 w-0 transition-all duration-300 ease-in-out bg-secondary group-hover:w-full",
-                { "w-full": pathname === "/" }
+                { "w-full": active === "Home" }
               )}
             ></span>
           </Link>
@@ -44,14 +47,15 @@ export default function Nav() {
                 href={link.href}
                 className={cn(
                   "relative overflow-hidden  p-2 hover:text-secondary group",
-                  { "text-secondary": pathname === link.href }
+                  { "text-secondary": active === link.name }
                 )}
+                onClick={() => setActive(link.name)}
               >
                 {link.name}
                 <span
                   className={cn(
                     "absolute inset-0 bg-primary w-0 transition-all duration-300 ease-in-out group-hover:w-full z-[-1]",
-                    { "w-full": pathname === link.href }
+                    { "w-full": active === link.name }
                   )}
                 ></span>
               </Link>

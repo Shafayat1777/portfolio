@@ -4,7 +4,7 @@ import CardProject from "./card-project";
 
 export default function Projects() {
   return (
-    <section className="mb-28 sm:mb-40">
+    <section className="mb-28 sm:mb-40 scroll-mt-28" id="projects">
       <SectionHeading>Projects</SectionHeading>
 
       <div className="flex flex-col items-center gap-4 sm:gap-8">

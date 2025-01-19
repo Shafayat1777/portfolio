@@ -9,7 +9,7 @@ import { HiDownload } from "react-icons/hi";
 
 export default function Main() {
   return (
-    <section className="mb-20">
+    <section className="mb-20 scroll-mt-[100rem]" id="home">
       <div className=" grid grid-cols-1 md:grid-cols-2 gap-4">
         <motion.div
           className="flex flex-col justify-center"
