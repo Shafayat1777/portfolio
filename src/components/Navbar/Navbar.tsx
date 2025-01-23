@@ -1,19 +1,17 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
 import cn from "@/utils/cn";
 import { links } from "@/lib/data";
 import { IoMdMenu } from "react-icons/io";
 import { useState } from "react";
 import SideNavBar from "./SideNavBar";
+import { useActiveSectionContext } from "@/hooks/context";
 
 export default function Nav() {
-  const pathname = usePathname();
+  const { active, setActive } = useActiveSectionContext();
   const [showSideNav, setShowSideNav] = useState<boolean>(false);
-  const [active, setActive] = useState<string>("Home");
 
-  console.log(window.location.hash);
   return (
     <header className="relative z-[999] ">
       <motion.div

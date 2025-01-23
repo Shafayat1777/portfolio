@@ -1,10 +1,21 @@
 "use client";
+import { useActiveSectionContext } from "@/hooks/context";
 import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
 export default function About() {
+  const { setActive } = useActiveSectionContext();
+  const { ref, inView } = useInView({ threshold: 0.75});
+
+  useEffect(() => {
+    if (inView) setActive("About");
+  }, [inView, setActive]);
+
   return (
     <motion.section
+      ref={ref}
       className="mb-28 sm:mb-40 scroll-mt-28"
       id="about"
       initial={{ opacity: 0, y: 100 }}
