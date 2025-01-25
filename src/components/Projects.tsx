@@ -3,18 +3,10 @@
 import SectionHeading from "./section-heading";
 import { projects } from "@/lib/data";
 import CardProject from "./card-project";
-import { useActiveSectionContext } from "@/hooks/context";
-import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+import { useSectionInView } from "@/hooks/hooks";
 
 export default function Projects() {
-  const { setActive } = useActiveSectionContext();
-  const { ref, inView } = useInView({ threshold: 0.5 });
-
-  useEffect(() => {
-    if (inView) setActive("Projects");
-  }, [inView, setActive]);
-
+  const { ref } = useSectionInView("Projects", .5);
   return (
     <section ref={ref} className="mb-28 sm:mb-40 scroll-mt-28" id="projects">
       <SectionHeading>Projects</SectionHeading>

@@ -9,7 +9,7 @@ import SideNavBar from "./SideNavBar";
 import { useActiveSectionContext } from "@/hooks/context";
 
 export default function Nav() {
-  const { active, setActive } = useActiveSectionContext();
+  const { active, setActive, setTimeOfLastClick } = useActiveSectionContext();
   const [showSideNav, setShowSideNav] = useState<boolean>(false);
 
   return (
@@ -24,7 +24,10 @@ export default function Nav() {
           <Link
             href="#home"
             className="relative text-2xl lg:text-4xl font-bold group"
-            onClick={() => setActive("Home")}
+            onClick={() => {
+              setActive("Home");
+              setTimeOfLastClick(Date.now());
+            }}
           >
             Shafayat<span className="text-secondary">.</span>
             <span
@@ -47,7 +50,10 @@ export default function Nav() {
                   "relative overflow-hidden  p-2 hover:text-secondary group",
                   { "text-secondary": active === link.name }
                 )}
-                onClick={() => setActive(link.name)}
+                onClick={() => {
+                  setActive(link.name);
+                  setTimeOfLastClick(Date.now());
+                }}
               >
                 {link.name}
                 <span

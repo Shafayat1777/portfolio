@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="!scroll-smooth">
-      <body className={`${pixelifySans.className} antialiased body h-[1900px]`}>
+      <body className={`${pixelifySans.className} antialiased body`}>
         <ActiveSectionContextProvider>
           <Nav />
           <div className="w-10/12  xl:w-8/12 mx-auto mt-40">{children}</div>

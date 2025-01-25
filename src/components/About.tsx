@@ -1,17 +1,10 @@
 "use client";
-import { useActiveSectionContext } from "@/hooks/context";
 import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+import { useSectionInView } from "@/hooks/hooks";
 
 export default function About() {
-  const { setActive } = useActiveSectionContext();
-  const { ref, inView } = useInView({ threshold: 0.75});
-
-  useEffect(() => {
-    if (inView) setActive("About");
-  }, [inView, setActive]);
+  const { ref } = useSectionInView("About");
 
   return (
     <motion.section
@@ -26,10 +19,30 @@ export default function About() {
 
       <p className="text-slate-300 text sm:text-lg font-semibold leading-8">
         {" "}
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate
-        eveniet excepturi repudiandae, minus sint neque harum fugit tenetur.
-        Deserunt facilis tempore ipsum dignissimos provident delectus est
-        eveniet reiciendis, temporibus repellendus.
+        I am a passionate and dedicated individual with a love for coding,
+        problem-solving, and crafting innovative machine learning models.
+        Proficient in the MERN (MongoDB, Express.js, React, Node.js) stack, I
+        also have a keen interest in web development. Over the past two years, I
+        have gained valuable experience in web development, further enhancing my
+        skills in creating dynamic and responsive web applications. In addition
+        to my technical skills, I have contributed significantly to the field of
+        machine learning, deep learning, and image processing through my
+        publications. These publications reflect my commitment to advancing
+        knowledge and innovation in these domains. Currently, I am leveraging my
+        expertise as a graduate teaching assistant, where I play a pivotal role
+        in teaching computer programming to students. Additionally, I actively
+        assist students and collaborate with teachers on research papers and
+        publications. I am proficient in Python, JavaScript, and C programming,
+        providing a versatile skill set for a range of projects. I bring
+        valuable experience working collaboratively in a team environment. My
+        flexibility and ability to adapt seamlessly to changing environments and
+        workflows set me apart. I thrive in dynamic settings and find joy in
+        overcoming challenges. With a strong foundation in coding, a curiosity
+        that drives continuous learning, a track record of impactful
+        publications, hands-on experience in web development, and mentoring
+        abilities as a graduate teaching assistant, I offer a unique combination
+        of technical expertise and adaptability that can positively contribute
+        to any project or team.
       </p>
     </motion.section>
   );

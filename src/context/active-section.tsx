@@ -1,25 +1,22 @@
 "use client";
 
 import { useState, createContext } from "react";
-import { links } from "@/lib/data";
 
-type SectionName = (typeof links)[number]["name"];
+import type { ActiveSectionContextType } from "@/lib/types";
 
-type ActiveSectionContextType = {
-  active: string;
-  setActive: React.Dispatch<React.SetStateAction<string>>;
-};
-
-export const ActiveSectionContext = createContext<ActiveSectionContextType | null>(
-  null
-);
+export const ActiveSectionContext =
+  createContext<ActiveSectionContextType | null>(null);
 
 export default function ActiveSectionContextProvider({
   children,
 }: React.PropsWithChildren) {
   const [active, setActive] = useState<string>("Home");
+  const [timeOfLastClick, setTimeOfLastClick] = useState<number>(0);
+
   return (
-    <ActiveSectionContext.Provider value={{ active, setActive }}>
+    <ActiveSectionContext.Provider
+      value={{ active, setActive, timeOfLastClick, setTimeOfLastClick }}
+    >
       {children}{" "}
     </ActiveSectionContext.Provider>
   );

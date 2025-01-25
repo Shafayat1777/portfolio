@@ -6,17 +6,10 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
-import { useActiveSectionContext } from "@/hooks/context";
-import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+import { useSectionInView } from "@/hooks/hooks";
 
 export default function Main() {
-  const { setActive } = useActiveSectionContext();
-  const { ref, inView } = useInView({ threshold: 0.5 });
-
-  useEffect(() => {
-    if (inView) setActive("Home");
-  }, [inView, setActive]);
+  const { ref } = useSectionInView("Home", 0.5);
 
   return (
     <section ref={ref} className="mb-20 scroll-mt-[100rem]" id="home">
