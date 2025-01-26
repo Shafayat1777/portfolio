@@ -46,7 +46,7 @@ export default function Experience() {
     <section ref={ref} id="experience" className="mb-28 sm:mb-40 scroll-mt-28">
       <SectionHeading>Experience</SectionHeading>
 
-      <div className="flex gap-6">
+      <div className="flex flex-col sm:flex-row gap-6">
         <motion.div
           className="flex flex-col gap-4"
           variants={ButtonFadeInAnimationVariants}
@@ -81,14 +81,14 @@ export default function Experience() {
           viewport={{ once: true }}
         >
           {active && (
-            <div className="w-full grid grid-cols-2 gap-6">
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
               {educations.map((education, index) => (
                 <ExperienceCard {...education} key={index} />
               ))}
             </div>
           )}
           {active2 && (
-            <div className="w-full grid grid-cols-2 gap-6">
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
               {experiences.map((experience, index) => (
                 <ExperienceCard {...experience} key={index} />
               ))}
