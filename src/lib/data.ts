@@ -79,3 +79,27 @@ export const skills = [
   "Kubernetes",
   "AWS",
 ];
+
+export const experiences = [
+  {
+    title: "Graduate Teaching Assistant",
+    company: "East West Unjversity",
+    website: "https://www.ewubd.edu",
+    from: "September 2023",
+    to: "June 2024",
+  },
+  {
+    title: "Web Developer",
+    company: "Getsview",
+    website: "https://www.getsview.com",
+    from: "February 2022",
+    to: "January 2023",
+  },
+  {
+    title: "Software Engineer [Full-Stack]",
+    company: "SynapTech",
+    website: "",
+    from: "June 2024",
+    to: "Currently Working",
+  },
+];

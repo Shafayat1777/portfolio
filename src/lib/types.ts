@@ -12,3 +12,10 @@ export type ActiveSectionContextType = {
   timeOfLastClick: number;
   setTimeOfLastClick: React.Dispatch<React.SetStateAction<number>>;
 };
+
+export type ButtonProps = {
+  text: string;
+  icon?: React.ReactNode;
+  isActive?: boolean;
+  onClick?: () => void;
+};
