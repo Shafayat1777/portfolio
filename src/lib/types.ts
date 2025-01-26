@@ -19,3 +19,11 @@ export type ButtonProps = {
   isActive?: boolean;
   onClick?: () => void;
 };
+
+export type ExperienceCardProps = {
+  title: string;
+  company: string;
+  website: string;
+  from: string;
+  to: string;
+};

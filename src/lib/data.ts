@@ -85,21 +85,45 @@ export const experiences = [
     title: "Graduate Teaching Assistant",
     company: "East West Unjversity",
     website: "https://www.ewubd.edu",
-    from: "September 2023",
-    to: "June 2024",
+    from: "Sep 2023",
+    to: "Jun 2024",
   },
   {
     title: "Web Developer",
     company: "Getsview",
     website: "https://www.getsview.com",
-    from: "February 2022",
-    to: "January 2023",
+    from: "Feb 2022",
+    to: "Jan 2023",
   },
   {
     title: "Software Engineer [Full-Stack]",
     company: "SynapTech",
     website: "",
-    from: "June 2024",
+    from: "Jun 2024",
     to: "Currently Working",
+  },
+];
+
+export const educations = [
+  {
+    title: "SSC",
+    company: "Motijheel Govt. Boy's High School",
+    website: "https://www.ewubd.edu",
+    from: "2015",
+    to: "2016",
+  },
+  // {
+  //   title: "HSC",
+  //   company: "Motijheel Govt. Boy's High School",
+  //   website: "https://www.getsview.com",
+  //   from: "2016",
+  //   to: "2018",
+  // },
+  {
+    title: "Bsc. Computer Science & Engineering",
+    company: "East West University",
+    website: "https://www.ewubd.edu",
+    from: "Sep 2019",
+    to: "Sep 2023",
   },
 ];
