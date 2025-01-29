@@ -46,7 +46,7 @@ export default function Experience() {
     <section ref={ref} id="experience" className="mb-28 sm:mb-40 scroll-mt-28">
       <SectionHeading>Experience</SectionHeading>
 
-      <div className="flex flex-col sm:flex-row gap-6">
+      <div className="flex flex-col justify-center sm:flex-row gap-6">
         <motion.div
           className="flex flex-col gap-4"
           variants={ButtonFadeInAnimationVariants}
