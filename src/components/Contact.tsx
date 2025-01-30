@@ -4,9 +4,14 @@ import SectionHeading from "./section-heading";
 import { IoIosSend } from "react-icons/io";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/hooks/hooks";
+import {sendEmail} from "@/actions/sendEmail";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
+
+  const handleSendEmail = async (formData: FormData) => {
+    const result = await sendEmail(formData);
+  }
   return (
     <motion.section
       ref={ref}
@@ -32,19 +37,21 @@ export default function Contact() {
           or through this form.
         </p>
 
-        <form action="" className="flex flex-col gap-3 mt-8">
+        <form action={handleSendEmail} className="flex flex-col gap-3 mt-8">
           <input
+            name="senderEmail"
             placeholder="Your email"
-            type="text"
+            type="email"
+            required
             className="h-14 p-4 border border-secondary-dark bg-tertiary-dark"
           />
           <textarea
-            name=""
-            id=""
+            name="message"
+            required
             placeholder="Your message..."
             className="border border-secondary-dark bg-tertiary-dark h-52 p-4"
           />
-          <button className="group bg-secondary-dark text-white flex gap-2 px-3 py-3 items-center justify-center outline-none transition-all hover:bg-secondary-dark/70 focus:scale-110 hover:scale-110">
+          <button className="group bg-secondary-dark text-white flex gap-2 px-3 py-3 items-center justify-center outline-none transition-all hover:bg-secondary-dark/70 focus:scale-110 hover:scale-110 active:scale-105">
             Submit{" "}
             <IoIosSend
               size={20}

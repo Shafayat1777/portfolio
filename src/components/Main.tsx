@@ -7,8 +7,10 @@ import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { useSectionInView } from "@/hooks/hooks";
+import { useActiveSectionContext } from "@/hooks/context";
 
 export default function Main() {
+  const { setActive, setTimeOfLastClick } = useActiveSectionContext();
   const { ref } = useSectionInView("Home", 0.5);
 
   return (
@@ -54,6 +56,10 @@ export default function Main() {
         transition={{ duration: 1, type: "spring", delay: 1 }}
       >
         <Link
+          onClick={() => {
+            setActive("Contact");
+            setTimeOfLastClick(Date.now());
+          }}
           href="#contact"
           className="flex items-center w-full sm:w-fit text-lg px-7 py-3 text-white bg-secondary-dark gap-2 transition-all outline-none focus:scale-110 active:scale-105 hover:scale-110 group"
         >
