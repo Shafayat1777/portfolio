@@ -1,17 +1,38 @@
 "use client";
 
 import SectionHeading from "./section-heading";
-import { IoIosSend } from "react-icons/io";
+
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/hooks/hooks";
-import {sendEmail} from "@/actions/sendEmail";
+import { sendEmail } from "@/actions/sendEmail";
+import { useActionState, useEffect, useState } from "react";
+import SubmitButton from "@/ui/submitButton";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
+  const [state, formAction, pending] = useActionState(sendEmail, null);
 
-  const handleSendEmail = async (formData: FormData) => {
-    const result = await sendEmail(formData);
-  }
+  const [errors, setErrors] = useState<object>({});
+
+  // useEffect(() => {
+  //   if (state?.errors) {
+  //     toast.warn(state?.message);
+  //     setErrors(state?.errors);
+  //   }
+
+  //   if (state?.success) {
+  //     toast.success("Registration Success! Redirecting to login page...");
+  //     setSuccess(true);
+  //     // Delay the redirection by 3 seconds (3000 milliseconds)
+  //     const timer = setTimeout(() => {
+  //       router.push("/login");
+  //     }, 2000);
+
+  //     // Cleanup timer when component unmounts or state changes
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [state]);
+
   return (
     <motion.section
       ref={ref}
@@ -37,7 +58,7 @@ export default function Contact() {
           or through this form.
         </p>
 
-        <form action={handleSendEmail} className="flex flex-col gap-3 mt-8">
+        <form action={formAction} className="flex flex-col gap-3 mt-8">
           <input
             name="senderEmail"
             placeholder="Your email"
@@ -51,13 +72,7 @@ export default function Contact() {
             placeholder="Your message..."
             className="border border-secondary-dark bg-tertiary-dark h-52 p-4"
           />
-          <button className="group bg-secondary-dark text-white flex gap-2 px-3 py-3 items-center justify-center outline-none transition-all hover:bg-secondary-dark/70 focus:scale-110 hover:scale-110 active:scale-105">
-            Submit{" "}
-            <IoIosSend
-              size={20}
-              className="transition-all group-hover:translate-x-1 group-hover:-translate-y-1"
-            />
-          </button>
+          <SubmitButton text="Send" pending={pending} />
         </form>
       </div>
     </motion.section>

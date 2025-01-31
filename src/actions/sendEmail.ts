@@ -1,6 +1,8 @@
 "use server";
 import { Resend } from "resend";
 import z from "zod";
+import ReactMail from "@/email/react-mail";
+import React from "react";
 
 const formSchema = z.object({
   senderEmail: z.string().email(),
@@ -9,7 +11,7 @@ const formSchema = z.object({
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function sendEmail(formData: FormData) {
+export async function sendEmail(prevState: unknown, formData: FormData) {
   const senderEmail = formData.get("senderEmail") ?? undefined;
   const message = formData.get("message") ?? undefined;
 
@@ -26,7 +28,10 @@ export async function sendEmail(formData: FormData) {
     to: "shafayat1777@gmail.com",
     subject: "Hello World",
     replyTo: result.data.senderEmail,
-    text: result.data.message,
+    react: React.createElement(ReactMail, {
+      message: result.data.message,
+      senderEmail: result.data.senderEmail,
+    }),
   });
 
   if (error) {
