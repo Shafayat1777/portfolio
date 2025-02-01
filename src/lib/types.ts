@@ -1,5 +1,3 @@
-import { links } from "@/lib/data";
-
 export type SectionName = {
   sectionName: string;
 };
@@ -26,4 +24,9 @@ export type ExperienceCardProps = {
   website: string;
   from: string;
   to: string;
+};
+
+export type FormErrors = {
+  senderEmail?: string[];
+  message?: string[];
 };

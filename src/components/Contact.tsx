@@ -7,29 +7,38 @@ import { useSectionInView } from "@/hooks/hooks";
 import { sendEmail } from "@/actions/sendEmail";
 import { useActionState, useEffect, useState } from "react";
 import SubmitButton from "@/ui/submitButton";
+import type { FormErrors } from "@/lib/types";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
   const [state, formAction, pending] = useActionState(sendEmail, null);
 
-  const [errors, setErrors] = useState<object>({});
+  const [errors, setErrors] = useState<FormErrors | null>();
 
+  console.log(state?.errors);
   // useEffect(() => {
   //   if (state?.errors) {
-  //     toast.warn(state?.message);
+  //     // toast.warn(state?.message);
   //     setErrors(state?.errors);
   //   }
+    
 
-  //   if (state?.success) {
-  //     toast.success("Registration Success! Redirecting to login page...");
-  //     setSuccess(true);
-  //     // Delay the redirection by 3 seconds (3000 milliseconds)
-  //     const timer = setTimeout(() => {
-  //       router.push("/login");
-  //     }, 2000);
+  //   // if (state?.success) {
+  //   //   toast.success("Registration Success! Redirecting to login page...");
+  //   //   setSuccess(true);
+  //   //   // Delay the redirection by 3 seconds (3000 milliseconds)
+  //   //   const timer = setTimeout(() => {
+  //   //     router.push("/login");
+  //   //   }, 2000);
 
-  //     // Cleanup timer when component unmounts or state changes
-  //     return () => clearTimeout(timer);
+  //   //   // Cleanup timer when component unmounts or state changes
+  //   //   return () => clearTimeout(timer);
+  //   // }
+
+  //   if (state?.errors) {
+  //     setErrors(state.errors);
+  //   } else {
+  //     setErrors(null); // Reset errors if the request succeeds
   //   }
   // }, [state]);
 
@@ -62,13 +71,14 @@ export default function Contact() {
           <input
             name="senderEmail"
             placeholder="Your email"
-            type="email"
-            required
+            type="text"
+            // required
             className="h-14 p-4 border border-secondary-dark bg-tertiary-dark"
           />
+   
           <textarea
             name="message"
-            required
+            // required
             placeholder="Your message..."
             className="border border-secondary-dark bg-tertiary-dark h-52 p-4"
           />
