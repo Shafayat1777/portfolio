@@ -25,8 +25,3 @@ export type ExperienceCardProps = {
   from: string;
   to: string;
 };
-
-export type FormErrors = {
-  senderEmail?: string[];
-  message?: string[];
-};

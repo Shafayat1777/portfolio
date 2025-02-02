@@ -5,42 +5,37 @@ import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/hooks/hooks";
 import { sendEmail } from "@/actions/sendEmail";
-import { useActionState, useEffect, useState } from "react";
+import { useActionState, useEffect } from "react";
 import SubmitButton from "@/ui/submitButton";
-import type { FormErrors } from "@/lib/types";
+import toast from "react-hot-toast";
+import { MdError } from "react-icons/md";
+import { FaCheckCircle } from "react-icons/fa";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
   const [state, formAction, pending] = useActionState(sendEmail, null);
 
-  const [errors, setErrors] = useState<FormErrors | null>();
-
-  console.log(state?.errors);
-  // useEffect(() => {
-  //   if (state?.errors) {
-  //     // toast.warn(state?.message);
-  //     setErrors(state?.errors);
-  //   }
-    
-
-  //   // if (state?.success) {
-  //   //   toast.success("Registration Success! Redirecting to login page...");
-  //   //   setSuccess(true);
-  //   //   // Delay the redirection by 3 seconds (3000 milliseconds)
-  //   //   const timer = setTimeout(() => {
-  //   //     router.push("/login");
-  //   //   }, 2000);
-
-  //   //   // Cleanup timer when component unmounts or state changes
-  //   //   return () => clearTimeout(timer);
-  //   // }
-
-  //   if (state?.errors) {
-  //     setErrors(state.errors);
-  //   } else {
-  //     setErrors(null); // Reset errors if the request succeeds
-  //   }
-  // }, [state]);
+  useEffect(() => {
+    if (state?.success === false) {
+      toast(state?.message, {
+        icon: <MdError size={30} className="text-red-500" />,
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+    } else {
+      toast(state?.message, {
+        icon: <FaCheckCircle size={30} className="text-green-500" />,
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+    }
+  }, [state]);
 
   return (
     <motion.section
@@ -75,13 +70,19 @@ export default function Contact() {
             // required
             className="h-14 p-4 border border-secondary-dark bg-tertiary-dark"
           />
-   
+          {state?.type === "validation_error" &&
+            state?.details?.senderEmail && (
+              <p>{state?.details?.senderEmail.join(", ")}</p>
+            )}
           <textarea
             name="message"
             // required
             placeholder="Your message..."
             className="border border-secondary-dark bg-tertiary-dark h-52 p-4"
           />
+          {state?.type === "validation_error" && state?.details?.message && (
+            <p>{state?.details?.message.join(", ")}</p>
+          )}
           <SubmitButton text="Send" pending={pending} />
         </form>
       </div>

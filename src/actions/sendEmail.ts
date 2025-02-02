@@ -16,33 +16,47 @@ export async function sendEmail(prevState: unknown, formData: FormData) {
   const message = formData.get("message") ?? undefined;
 
   const result = formSchema.safeParse({ senderEmail, message });
-  if (!result.success) {
+
+  try {
+    if (!result.success) {
+      console.log(result.error.flatten().fieldErrors);
+      return {
+        success: false,
+        type: "validation_error",
+        message: "Validation failed",
+        details: result.error.flatten().fieldErrors,
+      };
+    }
+
+    const { data, error } = await resend.emails.send({
+      from: "My Portfolio <onboarding@resend.dev>",
+      to: "shafayat1777@gmail.com",
+      subject: "Hello World",
+      replyTo: result.data.senderEmail,
+      react: React.createElement(ReactMail, {
+        message: result.data.message,
+        senderEmail: result.data.senderEmail,
+      }),
+    });
+
+    if (error) {
+      return {
+        success: false,
+        type: "resend_error",
+        message: "Email failed to send. Domain is not verified!",
+      };
+    }
+
     return {
-      errors: result.error.flatten().fieldErrors,
-      message: "Email send Failed!",
+      success: true,
+      type: "success",
+      message: "Email sent successfully!",
+    };
+  } catch (error) {
+    return {
+      success: false,
+      type: "unknown_error",
+      message: "An unexpected error occurred",
     };
   }
-
-  const { data, error } = await resend.emails.send({
-    from: "My Portfolio <onboarding@resend.com>",
-    to: "shafayat1777@gmail.com",
-    subject: "Hello World",
-    replyTo: result.data.senderEmail,
-    react: React.createElement(ReactMail, {
-      message: result.data.message,
-      senderEmail: result.data.senderEmail,
-    }),
-  });
-
-  if (error) {
-    return {
-      errors: error,
-      message: "Email send Failed!",
-    };
-  }
-
-  return {
-    data,
-    message: "Email send Successfully!",
-  };
 }
