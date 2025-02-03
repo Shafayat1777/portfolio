@@ -4,11 +4,10 @@ import { useState, useEffect } from "react";
 
 const TypewriterText: React.FC = () => {
   const fullText: string = `
-    I am a passionate and dedicated individual with a love for coding,
-    problem-solving, and crafting innovative machine learning models.
-    Proficient in the MERN (MongoDB, Express.js, React, Node.js) stack, I
-    also have a keen interest in web development.
-  `;
+    a passionate and dedicated web developer who loves
+    coding and problem-solving. Proficient in Next.js,
+    Express.js, React, and Node.js, I enjoy building 
+    efficient and scalable web applications`;
 
   const [displayedText, setDisplayedText] = useState<string>("");
 
@@ -35,7 +34,9 @@ const TypewriterText: React.FC = () => {
   }, [fullText]);
 
   return (
-    <p className="text sm:text-lg font-light text-slate-300 mt-5 ">{displayedText}</p>
+    <p className="text sm:text-lg font-light text-slate-300 mt-5 ">
+      {displayedText}
+    </p>
   );
 };
 

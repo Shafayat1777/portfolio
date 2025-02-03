@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { pressStart2P, pixelifySans } from "@/components/Fonts/fonts";
+import { pressStart2P, pixelifySans, roboto } from "@/components/Fonts/fonts";
 import "./globals.css";
 import Nav from "@/components/Navbar/Navbar";
 import ActiveSectionContextProvider from "@/context/active-section";
@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="!scroll-smooth">
-      <body className={`${pixelifySans.className} antialiased body`}>
+      <body className={`${roboto.className} antialiased body`}>
         <ActiveSectionContextProvider>
           <Nav />
           <div className="w-10/12  xl:w-8/12 mx-auto mt-40">{children}</div>

@@ -28,14 +28,15 @@ export default function Skills() {
         {skills.map((skill, index) => (
           <motion.li
             key={index}
-            className="bg-primary-dark text-secondary-light px-5 py-3"
+            className="bg-primary-dark text-secondary-light px-5 py-3 flex gap-2 items-center"
             variants={fadeInAnimationVariants}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             custom={index}
           >
-            {skill}
+            {skill.icon}
+            {skill.name}
           </motion.li>
         ))}
       </ul>

@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="mb-10 px-4 text-center">
       <small className="block mb-2 ">
-        &copy; 2030 Ricoco. All rights reserved.
+        &copy; 2030 Shafayat Portfolio. All rights reserved.
       </small>
       <p className="mb-2 text-xs">
         <span className="font-semibold">About this website:</span> built with

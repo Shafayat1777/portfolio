@@ -1,6 +1,26 @@
+import React from "react";
 import { FaLinkedin, FaGithubSquare } from "react-icons/fa";
 import project_1 from "../../public/project-1.png";
 import project_2 from "../../public/project-2.png";
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaReact,
+  FaNodeJs,
+  FaGitAlt,
+  FaPython,
+  FaDocker,
+} from "react-icons/fa";
+import {
+  SiTypescript,
+  SiJavascript,
+  SiNextdotjs,
+  SiExpress,
+  SiTailwindcss,
+  SiMysql,
+  SiPostgresql,
+  SiMongodb,
+} from "react-icons/si";
 
 export const links = [
   { name: "About", href: "#about" },
@@ -14,12 +34,12 @@ export const socials = [
   {
     name: "GitHub",
     href: "https://github.com/Shafayat1777",
-    icon: FaGithubSquare,
+    icon: React.createElement(FaGithubSquare),
   },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/shafayat-hossain-84a32b1b8/",
-    icon: FaLinkedin,
+    icon: React.createElement(FaLinkedin),
   },
 ];
 
@@ -55,29 +75,22 @@ export const projects = [
 ];
 
 export const skills = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Next.Js",
-  "Node.Js",
-  "Express.Js",
-  "Strapi",
-  "TailwindCSS",
-  "MySQL",
-  "MongoDB",
-  "Git",
-  "GitHub",
-  "Framer Motion",
-  "Python",
-  "C",
-  "C++",
-  "Java",
-  "SQL",
-  "Docker",
-  "Kubernetes",
-  "AWS",
+  { name: "HTML", icon: React.createElement(FaHtml5) },
+  { name: "CSS", icon: React.createElement(FaCss3Alt) },
+  { name: "JavaScript", icon: React.createElement(SiJavascript) },
+  { name: "TypeScript", icon: React.createElement(SiTypescript) },
+  { name: "React", icon: React.createElement(FaReact) },
+  { name: "Next.Js", icon: React.createElement(SiNextdotjs) },
+  { name: "Node.Js", icon: React.createElement(FaNodeJs) },
+  { name: "Express.Js", icon: React.createElement(SiExpress) },
+  { name: "TailwindCSS", icon: React.createElement(SiTailwindcss) },
+  { name: "MySQL", icon: React.createElement(SiMysql) },
+  { name: "PostgreSQL", icon: React.createElement(SiPostgresql) },
+  { name: "MongoDB", icon: React.createElement(SiMongodb) },
+  { name: "Git", icon: React.createElement(FaGitAlt) },
+  { name: "GitHub", icon: React.createElement(FaGithubSquare) },
+  { name: "Python", icon: React.createElement(FaPython) },
+  { name: "Docker", icon: React.createElement(FaDocker) },
 ];
 
 export const experiences = [

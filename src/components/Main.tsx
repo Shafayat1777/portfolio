@@ -86,7 +86,7 @@ export default function Main() {
               href={social.href}
               target="_blank"
             >
-              <social.icon />
+              {social.icon}
             </a>
           ))}
         </div>
