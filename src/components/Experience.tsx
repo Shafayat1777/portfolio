@@ -79,6 +79,7 @@ export default function Experience() {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
+          className="w-full md:w-9/12"
         >
           {active && (
             <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">

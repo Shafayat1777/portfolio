@@ -113,7 +113,7 @@ export const experiences = [
     company: "SynapTech",
     website: "",
     from: "Jun 2024",
-    to: "Currently Working",
+    to: "Current",
   },
 ];
 
