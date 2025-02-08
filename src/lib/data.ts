@@ -47,12 +47,11 @@ export const projects = [
   {
     title: "Skill Up",
     description:
-      "Skill Up aims to revolutionize the way we learn by providing a dynamic and user-centric online platform.",
+      "SkillUp is a dynamic online platform where users can enroll in courses as students or create their own as instructors. With interactive lessons and progress tracking, it enhances learning and knowledge sharing",
     tags: [
       "React.Js",
       "Node.Js",
       "Express.Js",
-      "Strapi",
       "TailwindCSS",
       "MySQL",
     ],
@@ -61,7 +60,7 @@ export const projects = [
   {
     title: "Alumnet",
     description:
-      "Connect with East West University alumni worldwide. Discover career opportunities, networking events, and mentorship programs.",
+      "Alumnet is an alumni network for EWU, offering a job portal, alumni directory, global map, portfolio creator, events, blogs, and a gallery to keep alumni connected and engaged",
     tags: [
       "Next.Js",
       "Node.Js",
@@ -69,6 +68,7 @@ export const projects = [
       "Strapi",
       "TailwindCSS",
       "MySQL",
+      "Leaflet",
     ],
     image: project_2,
   },

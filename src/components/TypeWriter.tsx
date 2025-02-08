@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 
 const TypewriterText: React.FC = () => {
   const fullText: string = `
-    a passionate and dedicated web developer who loves
-    coding and problem-solving. Proficient in Next.js,
-    Express.js, React, and Node.js, I enjoy building 
+    A passionate and dedicated web developer who loves
+    coding and problem-solving. Proficient in Next.js, React.js,
+    Node.js and Express.js, I enjoy building 
     efficient and scalable web applications`;
 
   const [displayedText, setDisplayedText] = useState<string>("");
