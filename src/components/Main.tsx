@@ -24,7 +24,7 @@ export default function Main() {
         >
           <h2 className="text-lg">Software Engineer</h2>
           <h1 className="text-3xl md:text-6xl font-bold">
-            Hello I'm <br />
+            Hello I&apos;m <br />
             <span className="text-secondary">Shafayat Hossain</span>
           </h1>
 

@@ -10,10 +10,13 @@ import SubmitButton from "@/ui/submitButton";
 import toast from "react-hot-toast";
 import { MdError } from "react-icons/md";
 import { FaCheckCircle } from "react-icons/fa";
+import { ActionState, EmailErrorDetails } from "@/lib/types";
+
+
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
-  const [state, formAction, pending] = useActionState(sendEmail, null);
+  const [state, formAction, pending] = useActionState<ActionState<EmailErrorDetails>>(sendEmail, null);
 
   useEffect(() => {
     if (state?.success === false) {

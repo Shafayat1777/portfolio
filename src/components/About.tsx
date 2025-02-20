@@ -19,17 +19,17 @@ export default function About() {
 
       <p className="text-slate-300 text sm:text-lg font-semibold leading-8">
         {" "}
-        I'm a passionate and dedicated developer who loves problem-solving and
+        I&apos;m a passionate and dedicated developer who loves problem-solving and
         building seamless web experiences. With expertise in JavaScript, React,
         Next.js, Node.js, and Express, I specialize in creating dynamic and
-        high-performance applications. Beyond web development, I'm deeply
+        high-performance applications. Beyond web development, I&apos;m deeply
         interested in machine learning, particularly image processing
         applications in agriculture. I explore how AI can enhance precision
         farming, crop health monitoring, and automation in the agricultural
         sector. I thrive on challenges and continuously seek opportunities to
-        expand my skills. Whether it’s developing intuitive user interfaces,
+        expand my skills. Whether it&apos;s developing intuitive user interfaces,
         optimizing backend systems, or leveraging AI for impactful solutions,
-        I’m always eager to innovate.
+        I&apos;m always eager to innovate.
       </p>
     </motion.section>
   );

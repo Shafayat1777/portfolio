@@ -1,8 +1,7 @@
 "use client";
 import Image, { StaticImageData } from "next/image";
-import React, { use, useRef } from "react";
+import React, {  useRef } from "react";
 import { useScroll, motion, useTransform } from "framer-motion";
-import { div } from "framer-motion/client";
 
 type projectProps = {
   title: string;

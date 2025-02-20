@@ -25,3 +25,15 @@ export type ExperienceCardProps = {
   from: string;
   to: string;
 };
+
+export type EmailErrorDetails = {
+  senderEmail?: string[];
+  message?: string[];
+};
+
+export type ActionState<T = EmailErrorDetails> = {
+  success?: boolean;
+  message?: string;
+  type?: string;
+  details?: T;
+};

@@ -3,6 +3,7 @@ import { Resend } from "resend";
 import z from "zod";
 import ReactMail from "@/email/react-mail";
 import React from "react";
+import { ActionState, EmailErrorDetails } from "@/lib/types";
 
 const formSchema = z.object({
   senderEmail: z.string().email(),
@@ -11,7 +12,15 @@ const formSchema = z.object({
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function sendEmail(prevState: unknown, formData: FormData) {
+export async function sendEmail(
+  prevState: ActionState<EmailErrorDetails> | undefined,
+  formData: FormData
+): Promise<{
+  success: boolean;
+  type: string;
+  message: string;
+  details?: EmailErrorDetails;
+}> {
   const senderEmail = formData.get("senderEmail") ?? undefined;
   const message = formData.get("message") ?? undefined;
 
@@ -28,7 +37,7 @@ export async function sendEmail(prevState: unknown, formData: FormData) {
       };
     }
 
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: "My Portfolio <onboarding@resend.dev>",
       to: "shafayat1777@gmail.com",
       subject: "Hello World",
@@ -52,11 +61,12 @@ export async function sendEmail(prevState: unknown, formData: FormData) {
       type: "success",
       message: "Email sent successfully!",
     };
-  } catch (error) {
+  } catch (error: unknown) {
     return {
       success: false,
       type: "unknown_error",
       message: "An unexpected error occurred",
+      details: error || undefined,
     };
   }
 }

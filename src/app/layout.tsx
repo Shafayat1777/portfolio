@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { pressStart2P, pixelifySans, roboto } from "@/components/Fonts/fonts";
+import { roboto } from "@/components/Fonts/fonts";
 import "./globals.css";
 import Nav from "@/components/Navbar/Navbar";
 import ActiveSectionContextProvider from "@/context/active-section";
