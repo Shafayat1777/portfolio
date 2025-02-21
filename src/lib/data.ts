@@ -96,7 +96,7 @@ export const skills = [
 export const experiences = [
   {
     title: "Graduate Teaching Assistant",
-    company: "East West Unjversity",
+    company: "East West University",
     website: "https://www.ewubd.edu",
     from: "Sep 2023",
     to: "Jun 2024",

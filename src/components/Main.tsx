@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import TypewriterText from "@/components/TypeWriter";
 import { socials } from "@/lib/data";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -28,7 +27,12 @@ export default function Main() {
             <span className="text-secondary">Shafayat Hossain</span>
           </h1>
 
-          <TypewriterText />
+          <p className="text sm:text-lg font-light text-slate-300 mt-5">
+            A Passionate and dedicated web developer who loves coding and
+            problem-solving. Proficient in Next.js, React.js, Node.js and
+            Express.js, I enjoy building efficient and scalable web
+            applications.
+          </p>
         </motion.div>
 
         <motion.div
