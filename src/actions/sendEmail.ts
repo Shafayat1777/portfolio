@@ -3,7 +3,7 @@ import { Resend } from "resend";
 import z from "zod";
 import ReactMail from "@/email/react-mail";
 import React from "react";
-import { ActionState, EmailErrorDetails } from "@/lib/types";
+import { EmailErrorDetails } from "@/lib/types";
 
 const formSchema = z.object({
   senderEmail: z.string().email(),
@@ -13,7 +13,7 @@ const formSchema = z.object({
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function sendEmail(
-  prevState: ActionState<EmailErrorDetails> | undefined,
+  prevState: unknown,
   formData: FormData
 ): Promise<{
   success: boolean;
