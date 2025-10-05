@@ -1,13 +1,16 @@
 "use client";
 import Image, { StaticImageData } from "next/image";
-import React, {  useRef } from "react";
+import React, { useRef } from "react";
 import { useScroll, motion, useTransform } from "framer-motion";
+import { ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 type projectProps = {
   title: string;
   description: string;
   tags: string[];
   image: StaticImageData;
+  url: string;
 };
 
 export default function CardProject({
@@ -15,6 +18,7 @@ export default function CardProject({
   description,
   tags,
   image,
+  url,
 }: projectProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -38,7 +42,14 @@ export default function CardProject({
         className="bg-secondary-dark max-w-[42rem] text-slate-100 relative sm:overflow-hidden sm:h-[20rem]"
       >
         <div className="pt-4 pb-8 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[58%] flex flex-col h-full sm:group-even:ml-[16rem]">
-          <h3 className="text-2xl font-semibold">{title}</h3>
+          <h3 className="text-2xl font-semibold flex justify-between items-center">
+            {title}{" "}
+            {url && (
+              <Link href={url} target="_blank">
+                <ExternalLink className="hover:cursor-pointer hover:text-secondary" />
+              </Link>
+            )}
+          </h3>
           <p className="mt-2 leading-relaxed text-sm sm:text">{description}</p>
 
           <ul className="flex flex-wrap gap-2 mt-4 sm:mt-auto">
@@ -55,7 +66,7 @@ export default function CardProject({
         <Image
           src={image}
           alt={title}
-          className="sm:absolute top-12 -right-96 w-[40rem] rounded-t-lg shadow-2xl group-even:-left-96 transition group-hover:-translate-x-3 group-hover:-translate-y-3 group-hover:-rotate-2 group-hover:scale-[1.04] group-even:group-hover:translate-x-3 group-even:group-hover:translate-y-3 group-even:group-hover:rotate-2"
+          className="sm:absolute top-12 -right-96 w-[40rem] rounded-t-lg shadow-2xl group-even:-left-96 transition sm:group-hover:-translate-x-3 sm:group-hover:-translate-y-3 sm:group-hover:-rotate-2 sm:group-hover:scale-[1.04] group-even:sm:group-hover:translate-x-3 group-even:sm:group-hover:translate-y-3 group-even:sm:group-hover:rotate-2"
           quality={95}
         />
       </section>

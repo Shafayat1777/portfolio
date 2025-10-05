@@ -1,26 +1,17 @@
 import React from "react";
-import { FaLinkedin, FaGithubSquare } from "react-icons/fa";
+import { FaCss3Alt, FaDocker, FaGitAlt, FaGithubSquare, FaHtml5, FaLinkedin, FaNodeJs, FaPython, FaReact } from "react-icons/fa";
+import {
+  SiExpress,
+  SiJavascript,
+  SiMongodb,
+  SiMysql,
+  SiNextdotjs,
+  SiPostgresql,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
 import project_1 from "../../public/project-1.png";
 import project_2 from "../../public/project-2.png";
-import {
-  FaHtml5,
-  FaCss3Alt,
-  FaReact,
-  FaNodeJs,
-  FaGitAlt,
-  FaPython,
-  FaDocker,
-} from "react-icons/fa";
-import {
-  SiTypescript,
-  SiJavascript,
-  SiNextdotjs,
-  SiExpress,
-  SiTailwindcss,
-  SiMysql,
-  SiPostgresql,
-  SiMongodb,
-} from "react-icons/si";
 
 export const links = [
   { name: "About", href: "#about" },
@@ -46,19 +37,15 @@ export const socials = [
 export const projects = [
   {
     title: "Skill Up",
+    url: "",
     description:
       "SkillUp is a dynamic online platform where users can enroll in courses as students or create their own as instructors. With interactive lessons and progress tracking, it enhances learning and knowledge sharing",
-    tags: [
-      "React.Js",
-      "Node.Js",
-      "Express.Js",
-      "TailwindCSS",
-      "MySQL",
-    ],
+    tags: ["React.Js", "Node.Js", "Express.Js", "TailwindCSS", "MySQL"],
     image: project_1,
   },
   {
     title: "Alumnet",
+    url: "https://alumniportal.ewubd.edu",
     description:
       "Alumnet is an alumni network for EWU, offering a job portal, alumni directory, global map, portfolio creator, events, blogs, and a gallery to keep alumni connected and engaged",
     tags: [
