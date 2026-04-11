@@ -1,43 +1,65 @@
-import cn from "@/utils/cn";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { links } from "@/lib/data";
+"use client";
 
-export default function SideNavBar({
-  className,
-  showSideNav,
-}: {
-  className?: string;
-  showSideNav: boolean;
+import React from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import cn from "@/utils/cn";
+import { links } from "@/lib/data";
+import { useActiveSectionContext } from "@/hooks/context";
+
+// Added onClose to the types
+export default function SideNavBar({ 
+  showSideNav, 
+  onClose 
+}: { 
+  showSideNav: boolean; 
+  onClose: () => void; 
 }) {
-  const pathname = usePathname();
+  const { active, setActive, setTimeOfLastClick } = useActiveSectionContext();
 
   return (
-    <nav
-      className={cn(
-        "absolute right-[-100%] top-[5rem] flex flex-col gap-x-2 gap-y-1 text-lg font-semibold h-screen bg-primary-dark transition-all ease-out duration-400",
-        className,
-        { "right-0": showSideNav }
+    <AnimatePresence>
+      {showSideNav && (
+        <>
+          {/* --- THE BACKDROP --- */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose} // Closes when clicking anywhere outside the menu
+            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[1000]"
+          />
+
+          {/* --- THE MENU --- */}
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="fixed top-0 right-0 h-screen w-[75%] sm:w-[350px] bg-white dark:bg-gray-950 z-[1001] shadow-2xl p-10 flex flex-col"
+          >
+            <nav className="flex flex-col gap-6 mt-10">
+              {links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => {
+                    setActive(link.name);
+                    setTimeOfLastClick(Date.now());
+                    onClose(); // Close menu after clicking a link
+                  }}
+                  className={cn(
+                    "text-2xl font-semibold transition-colors",
+                    active === link.name ? "text-secondary" : "text-gray-500"
+                  )}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+          </motion.div>
+        </>
       )}
-    >
-      {links.map((link, index) => (
-        <Link
-          key={index}
-          href={link.href}
-          className={cn(
-            "relative overflow-hidden  p-2 hover:text-secondary group",
-            { "text-secondary": pathname === link.href }
-          )}
-        >
-          {link.name}
-          <span
-            className={cn(
-              "absolute inset-0 bg-primary w-0 transition-all duration-300 ease-in-out group-hover:w-full z-[-1]",
-              { "w-full": pathname === link.href }
-            )}
-          ></span>
-        </Link>
-      ))}
-    </nav>
+    </AnimatePresence>
   );
 }

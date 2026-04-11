@@ -1,101 +1,66 @@
 "use client";
-import Button from "@/ui/button";
+
+import React, { useState } from "react";
 import SectionHeading from "./section-heading";
 import { useSectionInView } from "@/hooks/hooks";
-import { useState } from "react";
 import { FaGraduationCap } from "react-icons/fa6";
 import { MdWork } from "react-icons/md";
 import ExperienceCard from "./experience-card";
 import { educations, experiences } from "@/lib/data";
-import { motion } from "framer-motion";
-
-const ButtonFadeInAnimationVariants = {
-  initial: {
-    opacity: 0,
-    x: -100,
-  },
-  animate: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      delay: 0.5,
-    },
-  },
-};
-
-const ExpFadeInAnimationVariants = {
-  initial: {
-    opacity: 0,
-    y: 100,
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.5,
-    },
-  },
-};
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Experience() {
   const { ref } = useSectionInView("Experience");
-  const [active, setActive] = useState<boolean>(true);
-  const [active2, setActive2] = useState<boolean>(false);
+  const [tab, setTab] = useState<"edu" | "exp">("edu");
 
   return (
-    <section ref={ref} id="experience" className="mb-28 sm:mb-40 scroll-mt-28">
+    <section ref={ref} id="experience" className="scroll-mt-28 max-w-[64rem] mx-auto px-4">
       <SectionHeading>Experience</SectionHeading>
 
-      <div className="flex flex-col justify-center sm:flex-row gap-6">
-        <motion.div
-          className="flex flex-col gap-4"
-          variants={ButtonFadeInAnimationVariants}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-        >
-          <Button
-            onClick={() => {
-              setActive(true);
-              setActive2(false);
-            }}
-            text="Education"
-            icon={<FaGraduationCap />}
-            isActive={active}
-          />
-          <Button
-            onClick={() => {
-              setActive(false);
-              setActive2(true);
-            }}
-            text="Experiences"
-            icon={<MdWork />}
-            isActive={active2}
-          />
-        </motion.div>
+      <div className="flex flex-col gap-12">
+        {/* Modern Tab Switcher */}
+        <div className="flex justify-center gap-4">
+          {[
+            { id: "edu", text: "Education", icon: <FaGraduationCap /> },
+            { id: "exp", text: "Work History", icon: <MdWork /> },
+          ].map((item) => (
+            <button
+              key={item.id}
+              onClick={() => setTab(item.id as "edu" | "exp")}
+              className={`relative flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all outline-none
+                ${tab === item.id ? "text-white" : "text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"}`}
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                {item.icon} {item.text}
+              </span>
+              {tab === item.id && (
+                <motion.div
+                  layoutId="activeTab"
+                  className="absolute inset-0 bg-secondary rounded-full shadow-md"
+                  transition={{ type: "spring", duration: 0.5 }}
+                />
+              )}
+            </button>
+          ))}
+        </div>
 
-        <motion.div
-          variants={ExpFadeInAnimationVariants}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          className="w-full md:w-9/12"
-        >
-          {active && (
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
-              {educations.map((education, index) => (
-                <ExperienceCard {...education} key={index} />
+        {/* Content Area with Animation */}
+        <div className="min-h-[300px]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={tab}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2 }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            >
+              {(tab === "edu" ? educations : experiences).map((item, index) => (
+                <ExperienceCard {...item} key={index} />
               ))}
-            </div>
-          )}
-          {active2 && (
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
-              {experiences.map((experience, index) => (
-                <ExperienceCard {...experience} key={index} />
-              ))}
-            </div>
-          )}
-        </motion.div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   );
