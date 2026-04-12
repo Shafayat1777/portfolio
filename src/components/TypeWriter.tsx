@@ -19,7 +19,7 @@ const TypewriterText: React.FC = () => {
     }, 50); // Adjust typing speed
 
     return () => clearInterval(typingInterval); // Cleanup on unmount
-  }, []); // Empty array ensures this effect runs once on mount
+  }, [fullText]); // Empty array ensures this effect runs once on mount
 
   return (
     <p className="text sm:text-lg font-light text-slate-300 mt-5">
