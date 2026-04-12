@@ -29,7 +29,7 @@ export default function Contact() {
         },
       });
     } else {
-      toast(state?.message, {
+      toast(state && state?.message, {
         icon: <FaCheckCircle size={30} className="text-green-500" />,
         style: {
           borderRadius: "10px",
