@@ -20,6 +20,8 @@ import {
   SiPostgresql,
   SiTailwindcss,
   SiTypescript,
+  SiHono,
+  SiShadcnui
 } from "react-icons/si";
 import project_1 from "../../public/project-1.png";
 import project_2 from "../../public/project-2.png";
@@ -86,7 +88,9 @@ export const skills = [
   { name: "Next.Js", icon: React.createElement(SiNextdotjs) },
   { name: "Node.Js", icon: React.createElement(FaNodeJs) },
   { name: "Express.Js", icon: React.createElement(SiExpress) },
+  { name: "Hono.Js", icon: React.createElement(SiHono) },
   { name: "TailwindCSS", icon: React.createElement(SiTailwindcss) },
+  { name: "ShadcnUI", icon: React.createElement(SiShadcnui) },
   { name: "MySQL", icon: React.createElement(SiMysql) },
   { name: "PostgreSQL", icon: React.createElement(SiPostgresql) },
   { name: "MongoDB", icon: React.createElement(SiMongodb) },
