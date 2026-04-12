@@ -39,7 +39,7 @@ export default function Contact() {
       });
     }
   }, [state]);
-
+// adadasd
   return (
     <motion.section
       ref={ref}
