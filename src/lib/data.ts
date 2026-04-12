@@ -1,5 +1,16 @@
 import React from "react";
-import { FaCss3Alt, FaDocker, FaGitAlt, FaGithubSquare, FaHtml5, FaLinkedin, FaNodeJs, FaPython, FaReact } from "react-icons/fa";
+import {
+  FaCss3Alt,
+  FaDocker,
+  FaGitAlt,
+  FaGithubSquare,
+  FaHtml5,
+  FaLinkedin,
+  FaNodeJs,
+  FaPython,
+  FaReact,
+  FaEnvelope,
+} from "react-icons/fa";
 import {
   SiExpress,
   SiJavascript,
@@ -31,6 +42,11 @@ export const socials = [
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/shafayat-hossain-84a32b1b8/",
     icon: React.createElement(FaLinkedin),
+  },
+  {
+    name: "Mail",
+    href: "mailto:shafayat1777@gmail.com",
+    icon: React.createElement(FaEnvelope),
   },
 ];
 

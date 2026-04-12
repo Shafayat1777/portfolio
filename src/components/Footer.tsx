@@ -1,34 +1,39 @@
 "use client";
 
+import { socials } from "@/lib/data";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer className="mt-20 mb-10 px-4 text-center text-gray-500 dark:text-gray-400">
-      <div className="max-w-[28rem] mx-auto border-t border-black/5 dark:border-white/10 pt-8">
-        {/* Status Indicator */}
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
-          </span>
-          <p className="text-[10px] uppercase tracking-[0.2em] font-bold">
-            Live & Active
-          </p>
+    <footer className="mt-20 border-t border-black/5 dark:border-white/10 pt-12 pb-8 px-4">
+      <div className="max-w-[50rem] mx-auto">
+        {/* Top Section: Branding & Socials */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-10">
+          <div className="text-center md:text-left">
+            <h3 className="text-xl font-bold dark:text-white tracking-tighter">
+              Shafayat<span className="text-secondary">.</span>
+            </h3>
+            <p className="text-xs text-gray-500 mt-1">
+              Available for new opportunities.
+            </p>
+          </div>
+
+          <div className="flex gap-4">
+            {socials.map((link, i) => (
+              <motion.a
+                key={i}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -3 }}
+                className="p-3 bg-gray-100 dark:bg-white/5 rounded-full text-gray-600 dark:text-gray-400 hover:text-secondary dark:hover:text-secondary transition-colors"
+                aria-label={link.name}
+              >
+                {link.icon}
+              </motion.a>
+            ))}
+          </div>
         </div>
-
-        <small className="block mb-2 text-xs">
-          &copy; {new Date().getFullYear()}{" "}
-          <span className="font-semibold dark:text-white">Shafayat.</span>
-          All rights reserved.
-        </small>
-
-        <p className="text-[10px] leading-relaxed max-w-[22rem] mx-auto">
-          <span className="font-semibold text-gray-800 dark:text-gray-300">
-            About this website:
-          </span>{" "}
-          built with React & Next.js (App Router), TypeScript, Tailwind CSS,
-          Framer Motion, and deployed on VPS.
-        </p>
       </div>
     </footer>
   );
