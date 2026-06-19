@@ -21,7 +21,7 @@ import {
   SiTailwindcss,
   SiTypescript,
   SiHono,
-  SiShadcnui
+  SiShadcnui,
 } from "react-icons/si";
 import project_1 from "../../public/project-1.png";
 import project_2 from "../../public/project-2.png";
@@ -31,6 +31,7 @@ export const links = [
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
   { name: "Experience", href: "#experience" },
+  { name: "Publications", href: "#publications" },
   // { name: "Contact", href: "#contact" },
 ] as const;
 
@@ -145,5 +146,47 @@ export const educations = [
     website: "https://www.ewubd.edu",
     from: "Sep 2019",
     to: "Sep 2023",
+  },
+];
+
+export const publications = [
+  {
+    title:
+      "Comprehensive dataset of annotated rice panicle image from Bangladesh",
+    journal: "DataInBrief",
+    type: "Journal",
+    year: "2023",
+    link: "https://www.sciencedirect.com/science/article/pii/S2352340923008399",
+  },
+  {
+    title:
+      "A Deep Reinforcement Learning Framework for Reducing Energy Consumption of Server CoolingSystem",
+    journal: "ICO-2023",
+    type: "Publication",
+    year: "2023",
+    link: "link.springer.com/chapter/10.1007/978-3-031-50327-6_4",
+  },
+  {
+    title:
+      "DeepCONVSVM: A Comprehensive Model for Detecting Disease in Mango Leaves",
+    journal: "IBDAP-2023",
+    type: "Publication",
+    year: "2023",
+    link: "https://ieeexplore.ieee.org/abstract/document/10272007",
+  },
+  {
+    title:
+      "Image Processing and Deep Learning Based Road Object Detection System for Safe Transportation",
+    journal: "ICCCNT-2024",
+    type: "Publication",
+    year: "2024",
+    link: "https://ieeexplore.ieee.org/abstract/document/10726014",
+  },
+  {
+    title: "Drone-based dataset of annotated sunflower images from Bangladesh",
+    journal: "DataInBrief",
+    type: "Journal",
+    year: "2024",
+    link: "https://www.sciencedirect.com/science/article/pii/S2352340925001490",
   },
 ];
