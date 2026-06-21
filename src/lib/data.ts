@@ -113,15 +113,15 @@ export const experiences = [
     title: "Web Developer",
     company: "Getsview",
     website: "https://www.getsview.com",
-    from: "Feb 2022",
-    to: "Jan 2023",
+    from: "Jul 2023",
+    to: "Jun 2024",
   },
   {
     title: "Software Engineer [Full-Stack]",
     company: "SynapTech",
     website: "",
-    from: "Jun 2024",
-    to: "Current",
+    from: "Jul 2024",
+    to: "Present",
   },
 ];
 
