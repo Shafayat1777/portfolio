@@ -59,6 +59,14 @@ export default function Main() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, type: "spring", delay: 1 }}
       >
+        <a
+          className="flex items-center w-full sm:w-fit text-lg px-7 py-3 border border-primary-light gap-2 transition-all outline-none focus:scale-110 active:scale-105 hover:scale-110 cursor-pointer"
+          href="https://docs.google.com/document/d/1NaLdRNrMlQbmKFBJj5afYCZI5WQnmjCjbm2zLO6KV34/export?format=pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Download CV <HiDownload size={20} />
+        </a>
         <Link
           onClick={() => {
             setActive("Contact");
@@ -73,15 +81,6 @@ export default function Main() {
             className="group-hover:translate-x-3 transition"
           />
         </Link>
-
-        <a
-          className="flex items-center w-full sm:w-fit text-lg px-7 py-3 border border-primary-light gap-2 transition-all outline-none focus:scale-110 active:scale-105 hover:scale-110 cursor-pointer"
-          href="https://docs.google.com/document/d/1NaLdRNrMlQbmKFBJj5afYCZI5WQnmjCjbm2zLO6KV34/export?format=pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Download CV <HiDownload size={20} />
-        </a>
 
         <div className="flex gap-4">
           {socials.map((social, index) => (

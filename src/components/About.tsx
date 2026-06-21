@@ -4,6 +4,14 @@ import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/hooks/hooks";
 
+function Highlight({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="font-medium text-gray-950 dark:text-white">
+      {children}
+    </span>
+  );
+}
+
 export default function About() {
   const { ref } = useSectionInView("About");
 
@@ -21,45 +29,25 @@ export default function About() {
       {/* Decorative background glow */}
       <div className="absolute top-0 -left-4 w-72 h-72 bg-secondary/10 rounded-full blur-[120px] -z-10" />
 
-      <div className="text-gray-700 dark:text-white/80 space-y-6">
-        <p className="text-lg leading-relaxed">
-          I&apos;m a passionate developer who finds joy in
-          <span className="font-bold text-secondary">
-            {" "}
-            building seamless web experiences
-          </span>
-          . My toolkit includes
-          <span className="font-medium dark:text-white">
-            {" "}
-            JavaScript, React, Next.js, and Node.js
-          </span>
-          , where I specialize in creating high-performance applications that
-          feel intuitive.
+      <div className="text-gray-700 dark:text-white/80 space-y-4">
+        <p>
+          I'm a developer who actually enjoys building things for the web —{" "}
+          <Highlight>TypeScript</Highlight>, <Highlight>React</Highlight>,{" "}
+          <Highlight>Next.js</Highlight>, <Highlight>Node.js</Highlight>, the
+          whole gang. I like making apps that feel fast and just work, the kind
+          where nothing gets in your way.
         </p>
-
-        <p className="text-lg leading-relaxed">
-          Beyond the standard web stack, I have a deep curiosity for
-          <span className="italic underline decoration-secondary/50">
-            {" "}
-            Machine Learning
-          </span>
-          . I&apos;m particularly focused on
-          <span className="font-semibold">
-            {" "}
-            image processing in agriculture
-          </span>
-          —exploring how AI can revolutionize precision farming and crop health
-          monitoring to create a more sustainable future.
+        <p>
+          I also dabbled in <Highlight>Machine Learning</Highlight> for a while
+          — specifically using AI to help farmers spot unhealthy crops early.
+          Cool stuff, but these days it's more of a "fun fact about me" than my
+          main thing, since I'm mostly heads-down on my dev career now.
         </p>
-
-        <p className="text-lg leading-relaxed">
-          Whether I&apos;m optimizing a backend system or training a model, I
-          thrive on the challenge of{" "}
-          <span className="text-secondary font-medium">
-            turning complex problems into elegant code
-          </span>
-          . I&apos;m always looking for the next innovation at the intersection
-          of tech and the real world.
+        <p>
+          Right now I've got a desktop app idea that's been living in my head
+          for too long, so I'm finally building it instead of just talking about
+          it at 2am. Always learning something new, always one tab away from a
+          random side project.
         </p>
       </div>
     </motion.section>

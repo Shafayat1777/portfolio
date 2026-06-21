@@ -37,9 +37,9 @@ export const links = [
 
 export const socials = [
   {
-    name: "GitHub",
-    href: "https://github.com/Shafayat1777",
-    icon: React.createElement(FaGithubSquare),
+    name: "Mail",
+    href: "mailto:shafayat1777@gmail.com",
+    icon: React.createElement(FaEnvelope),
   },
   {
     name: "LinkedIn",
@@ -47,9 +47,9 @@ export const socials = [
     icon: React.createElement(FaLinkedin),
   },
   {
-    name: "Mail",
-    href: "mailto:shafayat1777@gmail.com",
-    icon: React.createElement(FaEnvelope),
+    name: "GitHub",
+    href: "https://github.com/Shafayat1777",
+    icon: React.createElement(FaGithubSquare),
   },
 ];
 
